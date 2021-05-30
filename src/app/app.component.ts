@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.com ponent.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webkert';
+  title = 'Shipment Tracking';
 }

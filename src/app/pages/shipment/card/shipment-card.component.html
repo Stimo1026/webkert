@@ -1,0 +1,22 @@
+<mat-card *ngIf="shipment">
+  <mat-card-header>
+    <mat-card-title >{{shipment.itemName}}</mat-card-title>
+    <mat-card-subtitle>{{shipment.carrier}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Status: {{shipment.status}}</p>
+    <p>Estimated delivery: {{shipment.estimatedDeliveryDate}}</p>
+    <div class="buttons">
+    <div [style.backgroundColor]="shipment.weight > 5 ? '#800000': '#41A317'" class="weight">Weight: {{shipment.weight}}
+      kg
+    </div>
+      <button class="action-btn" mat-mini-fab color="primary" (click)="delete(shipment.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button class="action-btn" mat-mini-fab color="primary" (click)="select('modify', shipment.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+
+</mat-card>

@@ -1,1 +1,19 @@
-<p>shipment works!</p>
+<div [ngSwitch]="category" >
+  <app-nav (callSelectC)="onSelect($event)"></app-nav>
+  <div *ngSwitchCase="'shipment'" class="container">
+    <app-shipment-card (callSelectC)="onSelect($event)" (modify)="id=$event"  *ngFor="let shipment of shipments | async" [shipment]="shipment" appOnHover></app-shipment-card>
+    <button mat-fab class="action-btn" color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div *ngSwitchCase="'modify'" class="container">
+    <app-modify (callSelectC)="onSelect($event)" [id]="id">
+    </app-modify>
+  </div>
+  <div *ngSwitchDefault class="container">
+    <app-shipment-card (callSelectC)="onSelect($event)" (modify)="id=$event" *ngFor="let shipment of shipments | async" [shipment]="shipment" appOnHover></app-shipment-card>
+    <button mat-fab class="action-btn" color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
